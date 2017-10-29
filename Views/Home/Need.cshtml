@@ -1,0 +1,150 @@
+﻿<script src="~/Scripts/bootstrap.js"></script>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Need</title>
+    <style>
+        body {
+            background-color: #6693b9;
+        }
+
+        p {
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            font-family: Calibri;
+        }
+
+        .button1 {
+            border-radius: 4px;
+            background-color:lightblue;
+            color: black;
+            width: 50%;
+            float: left;
+            font-size: 50px;
+            padding: 80px 40px;
+            border: 5px solid black;
+            -webkit-transition-duration: 0.5s; /* Safari */
+            transition-duration: 0.5s;
+            font-family: Calibri;
+            background: url("../Content/orange.jpeg") no-repeat center;
+            background-size: cover;
+        }
+
+        .button2 {
+            border-radius: 4px;
+            width: 50%;
+            float: left;
+            font-size: 50px;
+            padding: 80px 40px;
+            background-color: lightblue;
+            border: 5px solid black;
+            color: black;
+            -webkit-transition-duration: 0.5s; /* Safari */
+            transition-duration: 0.5s;
+            font-family: Calibri;
+            background: url("../Content/drop.jpg") no-repeat center;
+            background-size: cover;
+        }
+
+        .button3 {
+            border-radius: 4px;
+            width: 50%;
+            float: left;
+            font-size: 50px;
+            padding: 80px 40px;
+            background-color: lightblue;
+            border: 5px solid black;
+            color: black;
+            -webkit-transition-duration: 0.5s; /* Safari */
+            transition-duration: 0.5s;
+            font-family: Calibri;
+            background: url("../Content/soap.jpg") no-repeat center;
+            background-size: cover;
+        }
+
+        .button4 {
+            border-radius: 4px;
+            width: 50%;
+            float: left;
+            font-size: 50px;
+            padding: 80px 40px;
+            background-color: lightblue;
+            border: 5px solid black;
+            color: black;
+            -webkit-transition-duration: 0.5s; /* Safari */
+            transition-duration: 0.5s;
+            font-family: Calibri;
+            background: url("../Content/bandaid.jpg") no-repeat center;
+            background-size: cover;
+        }
+
+        .button1:hover {
+            background: none;
+            background-color: lightblue;
+            color: white;
+        }
+
+        .button2:hover {
+            background: none;
+            background-color: lightblue;
+            color: white;
+        }
+
+        .button3:hover {
+            background: none;
+            background-color: lightblue;
+            color: white;
+        }
+
+        .button4:hover {
+            background: none;
+            background-color: lightblue;
+            color: white;
+        }
+
+        .button {
+            background-color: white;
+            border: 16px;
+            color: black;
+            padding: 20px 30px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            font-family: Calibri;
+            -webkit-transition-duration: 0.5s; /* Safari */
+            transition-duration: 0.5s;
+        }
+
+            .button:hover {
+                background-color: lightblue;
+                color: white;
+            }
+    </style>
+</head>
+<body>
+    <div>
+        <p>What do you need? Choose an option from the grid below.</p>
+    </div>
+    <div class="middle">
+        <center>
+            <br>
+            <br>
+            <div><input class="button1" type="button" value="Food" onclick="@("window.location.href='" + @Url.Action("FoodNeed","Home") +"'");" /></div>
+            <div><input class="button2" type="button" value="Water" onclick="@("window.location.href='" + @Url.Action("WaterNeed","Home") +"'");" /></div>
+            <div><input class="button3" type="button" value="Toiletries" onclick="@("window.location.href='" + @Url.Action("ToiletriesNeed","Home") +"'");" /></div>
+            <div><input class="button4" type="button" value="Medicine" onclick="@("window.location.href='" + @Url.Action("MedicineNeed","Home") +"'");" /></div>
+            <br>
+            <br />
+            <br />
+        </center>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="col-md-12 text-center"><input class="button" type="button" value="Back" onclick="@("window.location.href='" + @Url.Action("index","Home") +"'");" /></div>
+</body>
+</html>

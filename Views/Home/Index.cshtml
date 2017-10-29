@@ -1,0 +1,89 @@
+﻿<script src="~/Scripts/bootstrap.js"></script>
+@{
+    ViewBag.Title = "Index";
+}
+
+<head>
+
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <style>
+        p {
+            text-align: center;
+            color: #6693b9;
+            font-size: 24px;
+            font-family: Verdana;
+            letter-spacing: 10px;
+        }
+
+
+        .button {
+            /*color: white;*/
+            outline: none;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            font-size: 36px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            font-family: Verdana;
+            /*vertical-align: middle;*/
+            background: none;
+            border: none;
+            margin: 0;
+            padding-top: 80px;
+        }
+
+        .button1 {
+            outline: none;
+            border: none;
+            color: white;
+            float: left;
+        }
+
+            .button1:hover {
+                text-shadow: 5px 5px #6693b9;
+                color: white;
+            }
+
+        .button2 {
+            color: lightblue;
+            float: right;
+            outline: none;
+            border: none;
+            text-align: center;
+        }
+
+            .button2:hover {
+                text-shadow: 5px 5px lightblue;
+                color: #6693b9;
+            }
+
+
+        html, body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            min-height: 100%;
+            background: linear-gradient(90deg, lightblue 50%, white 50%);
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+
+        span {
+            color: lightblue;
+        }
+    </style>
+</head>
+
+<div class="container">
+    <div class="row">
+        <br /><br />
+        <p style="color:white;"> Care <span>Pair</span> </p>
+        <br /><br />
+        <input class="button button1 col-lg-6 text-left" type="button" value="I want to help!" onclick="@("window.location.href='" + @Url.Action("GiveInfo","Home") +"'");" />
+
+        <input class="button button2 col-lg-6 text-right" type="button" value=" In need! " onclick="@("window.location.href='" + @Url.Action("NeedInfo","Home") +"'");" />
+
+    </div>
+</div>

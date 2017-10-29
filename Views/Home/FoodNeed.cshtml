@@ -1,0 +1,199 @@
+﻿<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+@{
+    Layout = null;
+}
+<br /><br />
+<div class="content" style="text-align:center">
+    <h2 style="color:white; font-family:Verdana;">Food Information</h2>
+    <form style="color:white; font-family:Verdana;">
+        How many units (cans/boxes) of food do you need?<br>
+        <input type="text" id="numfood"><br>
+        Description<br>
+        <input type="text" id="desc">
+    </form>
+    <button class="button" style="text-align:center;vertical-align:middle;color:white" id="hel"><span> Submit </span></button>
+
+    <h4 id="demo"></h4>
+    <div id="addstuff">
+        <p></p>
+    </div>
+    <div>
+        <table class="table" id="tbldonate" style="visibility:hidden;text-align:center">
+            <tr style="text-align:center">
+                <th>Name </th>
+                <th>Phone number </th>
+            </tr>
+        </table>
+    </div>  
+</div>
+
+<style>
+    .content {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    body {
+        background-color: black;
+    }
+
+    form {
+        color: white;
+    }
+
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+
+    form {
+        display: inline-block;
+        text-align: left;
+        width: 400px;
+    }
+
+    .button {
+        align-self: center;
+        border: black;
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #82E0AA;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 20px;
+        padding: 10px;
+        width: 270px;
+        height: 50px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+        align-content: center;
+    }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+            .button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+</style>
+<style>
+    body {
+        background-color: #6693b9;
+    }
+    th {
+        text-align:center;
+        color:white;
+    }
+    tr {
+        color:white;
+        text-decoration:solid;
+        font-style:italic;
+        font-size:x-large;
+
+    }
+</style>
+
+<script>
+
+    $(document).ready(function () {
+        
+       
+
+        $("#hel").click(function () {
+           
+            var lat, lon;
+            var x = document.getElementById("demo");
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+            function showPosition(position) {
+
+                lat = position.coords.latitude;
+                lon = position.coords.longitude;
+            }
+
+            getLocation();
+            
+            var description = $("#desc").val();
+            var amt = $("#numfood").val();
+
+          
+            
+            var name = "ramya";
+            var mat = "food";
+            var pty = 1;
+            var phnum = "9008009000";
+            var lat = 28;       
+            var lon = 14;
+      
+            var Url = "@Url.Action("matchDonate","Home")";
+
+
+            $.ajax({
+                type: "POST",
+                url: Url,
+                data: {
+                    name: name,
+                    phnum: phnum,
+                    material: mat,
+                    amt: amt,
+                    pty: pty,
+                    latitude: lat,
+                    longitude: lon,
+                    descrip: description
+                },
+                success: function (data) {
+
+                    $("#addstuff").append("<p style=\"text-align:center\;color:white\">Match found!</p>");
+
+                    $("#tbldonate").css("visibility","visible");
+
+                    var tbldonate = $("#tbldonate");  
+                    $.each(data, function (index, item) {
+                        var tr = $("<tr></tr>");
+                        tr.html(("<td>" + item.name + "</td>")
+                        + " " + ("<td>" + item.phnum + "</td>"));
+                        tbldonate.append(tr);
+                    });
+                    
+                },
+                failure: function (response) {
+                    console.log(response.responseText);
+                },
+                error: function (response) {
+                    console.log(response.responseText);
+                }
+            });
+
+        });
+
+    });
+
+</script>

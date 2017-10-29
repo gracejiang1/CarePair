@@ -1,0 +1,25 @@
+﻿<script src="~/Scripts/bootstrap.min.js"></script>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Give</title>
+</head>
+<body>
+    <div>
+        This is the giving page. What can you give?
+    </div>
+    <div class="col-md-4"><input type="button" class="btn" value="Food" onclick="@("window.location.href='" + @Url.Action("FoodGive","Home") +"'");" /></div>
+    <br />
+    <div><input type="button" value="Water" onclick="@("window.location.href='" + @Url.Action("WaterGive","Home") +"'");" /></div>
+
+    <div><input type="button" value="Go back" onclick="@("window.location.href='" + @Url.Action("index","Home") +"'");" /></div>
+
+
+</body>
+</html>

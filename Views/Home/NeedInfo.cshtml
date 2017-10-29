@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+
+
+@{
+    ViewBag.Title = "Info";
+}
+<div class="content">
+    <br />
+    <br />
+    <br />
+    <h2 style="color:white">Contact Information</h2>
+    <form>
+        Full Name:<br>
+        <input type="text" name="firstname"><br>
+        Phone Number:<br>
+        <input type="text" name="phonenumber">
+    </form>
+    <button class="button" style="vertical-align:middle; color:white" onclick="@("window.location.href='" + @Url.Action("Need","Home") +" ' ");"><span> Submit </span></button>
+   
+</div>
+
+<style>
+    .content {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    body {
+        background-color: black;
+    }
+
+    form {
+        color: white;
+    }
+
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+
+    form {
+        display: inline-block;
+        text-align: left;
+        width: 400px;
+    }
+
+    .button {
+        align-self: center;
+        border: black;
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #82E0AA;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 20px;
+        padding: 10px;
+        width: 270px;
+        height: 50px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+        align-content: center;
+    }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+            .button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+</style>
+<style>
+    body {
+        background-color: #6693b9;
+    }
+</style>
+
+
+  
+<script>
+    $(document).ready(function () {
+
+        $(".btn").click(function () {
+
+            Session["name"] = $("#name").val();
+            Session["phonenum"] = $("#phonenum").val();
+
+            
+        });
+
+
+    });
+</script>
+
